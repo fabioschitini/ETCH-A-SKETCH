@@ -6,25 +6,74 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="grid">
+    <button  id="change">Press me!
+    </button>
+    <div id="superContainer">
+
+    
+  <div  class="container">
+    <div  class="grid">
         
     </div>
   </div >
+</div>
      
 
 
      
-
   
 <script>
   let grid=document.querySelector(".grid")
-  for(let i=0;i<256;i++){
-     let cell=document.createElement("div")
-     cell.classList.add("cell")
-     grid.appendChild(cell)
-  }
+  let container=document.querySelector(".container")
+  let  cell=document.querySelectorAll(".cell")
+
+
   
+
+
+     let btn=document.querySelector("#change")
+     btn.addEventListener("click",function(){
+       cell.forEach(function(cells){
+        cells.classList.remove("cell")
+       })
+       var elem = document.querySelector('.container');
+elem.parentNode.removeChild(elem);
+
+let superContainer=document.querySelector('#superContainer')
+
+        let container1=document.createElement("div")
+        container1.classList.add("container")
+        superContainer.appendChild(container1)
+        let grid1=document.createElement("div")
+        grid1.classList.add("grid")
+        container1.appendChild(grid1)
+       
+
+
+         let value=prompt("Please insert the number of squares you want per line")
+         grid1.style['grid-template-columns']="repeat(" + value + ",80px)";
+         grid1.style['grid-template-rows']="repeat(" + value + ",80px)";
+         
+
+         for(let i=0;i<value*value;i++){
+          
+     let celll=document.createElement("div")
+     celll.classList.add("cell")
+     grid1.appendChild(celll)
+     let  cells=document.querySelectorAll(".cell")
+     cells.forEach(function(cells){cells.addEventListener("mouseenter",function(){
+     cells.style.background="black"})})
+    }
+    
+     })
+
+     
+     
+    
+
+
+ 
+
 
 </script>
 
