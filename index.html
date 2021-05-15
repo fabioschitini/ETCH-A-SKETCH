@@ -6,17 +6,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1 id="definer"></h1>
+  <h1 id="colors"></h1>
     <button  id="change">Press me!
     </button>
-    <div id="superContainer">
+
 
     
-  <div  class="container">
+ 
     <div  class="grid">
         
     </div>
-  </div >
-</div>
+  
+
      
 
 
@@ -49,14 +51,19 @@
 
     return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
 }
+function random_rgba() {
+    var o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+}
 
 
   let grid=document.querySelector(".grid")
-  let container=document.querySelector(".container")
   let  cell=document.querySelectorAll(".cell")
-  let randomColor = Math.floor(Math.random()*16777215).toString(16);
-  let randomColor1= LightenDarkenColor(randomColor, -10)
-  randomColor2="#"+randomColor
+  let definer=document.querySelector("#definer")
+  definer.value=""
+  let colors=document.querySelector("#colors")
+ 
+  
 
 
   for(let i=0;i<256;i++){
@@ -64,15 +71,15 @@
           let cel=document.createElement("div")
           cel.classList.add("cell")
           grid.appendChild(cel)
-          let  cells=document.querySelectorAll(".cell")
-          cells.forEach(function(cells){ let randomColor = [Math.floor(Math.random()*16777215).toString(16)];
-            
-
-            cells.addEventListener("mouseenter",function(){if (randomColor==="000000"){return}
-            else 
-             randomColor.splice(0, 1,LightenDarkenColor(randomColor, -10))// funciona ate certo ponto, depois do nada as cores ficam aleatorias, nao faco a menor ideia pq.
-             
-             cells.style.background= "#" + randomColor})})}
+         }
+         let  cells=document.querySelectorAll(".cell")
+         
+         cells.forEach(function(cells){
+          console.log(cells)
+            cells.addEventListener("mouseenter",function(e){
+              let randomColor = Math.floor(Math.random()*16777215).toString(16)
+              cells.style.background= "#" + randomColor
+             })})
   
 
 
@@ -97,8 +104,8 @@ let superContainer=document.querySelector('#superContainer')
 
 
          let value=prompt("Please insert the number of squares you want per line")
-         grid1.style['grid-template-columns']="repeat(" + value + ",80px)";
-         grid1.style['grid-template-rows']="repeat(" + value + ",80px)";
+         grid1.style['grid-template-columns']="repeat(" + value + ",1rem)";
+         grid1.style['grid-template-rows']="repeat(" + value + ",1rem)";
          
          if(value<100)
          for(let i=0;i<value*value;i++){
