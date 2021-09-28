@@ -11,6 +11,9 @@ link Live preview of my web toy is here.
 https://fabioschitini.github.io/ETCH-A-SKETCH/
 
 Outcome of this project:
+
 Deepened knowledge of DOM and its manipulation.
+
 Improved CSS Grid understanding and usage.
+
 Greatly improved functionality in general (shortened, optimized and reusable functions).
