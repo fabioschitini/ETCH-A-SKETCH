@@ -7,6 +7,7 @@ https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/etc
 
 
 link Live preview of my web toy is here.
+
 https://fabioschitini.github.io/ETCH-A-SKETCH/
 
 Outcome of this project:
